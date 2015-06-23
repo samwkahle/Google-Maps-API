@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+
+
+<meta name="viewport" content="width=device-width, user-scalable=yes">
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+<script type="text/javascript" src="jquery-1.11.1.min.js"></script>
+
+
+    <title>Google Maps UFO Sightings</title>
+
+    <!-- Behavioral Meta Data -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<style>
+    #header {
+        width: 100vw;
+        height: 25vh;
+        background-image: url(ufoheader.png)
+        
+    }
+    
+    #map {
+        width: 100vw;
+        height: 75vh;
+        border: 1px solid black;
+    }
+</style>
+    
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=INSERT_API_KEY HERE">
+</script>
+    
+<script type="text/javascript">
+    
+    function initialize() {
+        
+        var unitedstates = new google.maps.LatLng(39.011902,-98.484246); 
+        
+    var stephenville = new google.maps.LatLng(32.220696,-98.202263); 
+        
+    var warren = new google.maps.LatLng(41.133056 ,-104.866944); 
+        
+    var chicago = new google.maps.LatLng(41.974162 ,-87.907321); 
+        
+   var houston = new google.maps.LatLng(29.760427 ,-95.369803); 
+        
+    var breckenridge = new google.maps.LatLng(39.481654, -106.038352);
+        
+     
+        var map =  new google.maps.Map(document.getElementById('map'), {
+        mapTypeId: google.maps.MapTypeId.HYBRID,
+        center: unitedstates,
+        zoom: 5
+        
+        });
+        
+    var image1 = 'ufo.png';
+    var image2 = 'ufo.png';
+    var image3 = 'ufo.png';
+    var image4 = 'ufo.png';
+    var image5 = 'ufo.png';
+    
+        
+         var contentString1 = '<div id="content">'+
+        '<img src="stephenville.jpg" id="pic">'+
+        '<h1>Stephenville, TX</h1>'+'On January 8, 2008, Stephenville gained national media attention when dozens of residents reported observations of unidentified flying objects. Several residents described the crafts as the size of a football field, while others said they were nearly a mile long, similar to the historic Arizona mass sighting of March 13, 1997. Some observers reported military aircraft pursuing the objects.'
+        '</div>';
+        
+    var contentString2 = '<div id="content">'+
+        '<img src="warren.jpg" id="pic">'+
+        '<h1>Warren Air Force Base</h1>'+'UFO sighting coincides with 50 nuclear missiles going off-line.'
+        '</div>';
+        
+    var contentString3 = '<div id="content">'+
+        '<img src="chicago.jpg" id="pic">'+
+        '<h1>Chicago OHare Airport</h1>'+' United Airlines employees and pilots claimed sightings of a saucer-shaped, unlit craft hovering over a Chicago OHare Airport terminal, before shooting up vertically.'
+        '</div>';
+        
+    var contentString4 = '<div id="content">'+
+        '<img src="houston.jpg" id="pic">'+
+        '<h1>Houston, TX</h1>'+ 'Many people in Houston, Texas saw a ring of lights, flying during a thunderstorm and this was captured on video, object seemed to be transparent but the lights were arranged in a circle with a central light visible on some pictures.'
+    '</div>';
+    
+    var contentString5 = '<div id="content">'+
+        '<img src="breckenridge.jpg" id="pic">'+
+'<h1>Breckenridge, CO</h1>'+ 'The police in Breckenridge, Colorado received not only one but multiple reports of UFO sightings over the city. The mysterious objects remained stationary for periods of up to 15 minutes at a time. After that, a flash would appear and the objects would take off across the mountain ridge.'
+        '</div>';
+        
+    
+    var infowindow1 = new google.maps.InfoWindow({
+        content: contentString1
+    });
+    
+    var infowindow2 = new google.maps.InfoWindow({
+        content: contentString2
+    });
+    
+    var infowindow3 = new google.maps.InfoWindow({
+        content: contentString3
+    });
+    
+    var infowindow4 = new google.maps.InfoWindow({
+        content: contentString4
+    });
+    
+    var infowindow5 = new google.maps.InfoWindow({
+        content: contentString5
+    });
+        
+
+     
+        
+   var marker1 = new google.maps.Marker({
+   position: stephenville, 
+   map: map,
+    icon: image1,
+    title: "stephenville",
+    animation: google.maps.Animation.DROP});
+       
+    var marker2 = new google.maps.Marker({
+   position: warren, 
+   map: map,
+    icon: image2,
+    title: "warren",
+    animation: google.maps.Animation.DROP});
+     
+    var marker3 = new google.maps.Marker({
+   position: chicago, 
+   map: map,
+    icon: image3,
+    title: "chicago",
+    animation: google.maps.Animation.DROP});
+      
+    var marker4 = new google.maps.Marker({
+   position: houston, 
+   map: map,
+    icon: image4,
+    title: "houston",
+    animation: google.maps.Animation.DROP});
+        
+    var marker5 = new google.maps.Marker({
+   position: breckenridge, 
+   map: map,
+    icon: image5,
+    title: "breckenridge",
+    animation: google.maps.Animation.DROP});
+    
+    
+        google.maps.event.addListener(marker1, 'click', function() {
+    infowindow1.open(map, marker1);
+});
+        
+        google.maps.event.addListener(marker2, 'click', function() {
+    infowindow2.open(map, marker2);
+});
+    
+        google.maps.event.addListener(marker3, 'click', function() {
+    infowindow3.open(map, marker3);
+});
+     
+        google.maps.event.addListener(marker4, 'click', function() {
+    infowindow4.open(map, marker4);
+ });
+            
+        google.maps.event.addListener(marker5, 'click', function() {
+    infowindow5.open(map, marker5);
+});
+        
+ 
+    };
+    
+google.maps.event.addDomListener(window, 'load', initialize);    
+</script>
+
+</head>
+<body>
+    <div id="header">
+    
+    </div>
+
+<div id="map"></div>
+
+</body>
+</html>
